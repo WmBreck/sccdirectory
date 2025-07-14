@@ -31,7 +31,7 @@ export default async function StatePage({ params }: StatePageProps) {
         <div className="w-full max-w-4xl lg:max-w-6xl bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 border border-white/40">
           <BackButton />
           <h1 className="text-2xl font-bold mb-8 text-center text-gray-900 drop-shadow">
-            {fullName} URLs With Information About {fullName}'s Small Claims Courts
+            {fullName} URLs With Information About {fullName}&apos;s Small Claims Courts
           </h1>
           <ul className="space-y-6">
             {stateRows.map((row, idx) => (

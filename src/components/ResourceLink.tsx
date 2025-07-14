@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function ResourceLink({ abbr, url }: { abbr: string; url: string }) {
+export default function ResourceLink({ url }: { abbr: string; url: string }) {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     window.open(url, '_blank');

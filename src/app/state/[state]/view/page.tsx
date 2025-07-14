@@ -43,7 +43,7 @@ export default function StateViewPage() {
       const isBlank = bodyText.trim() === '' || bodyText.length < 100;
       
       return hasError || isBlank;
-    } catch (error) {
+    } catch {
       // Cross-origin error - check if iframe src changed (indicates redirect/error)
       const currentSrc = iframeRef.current.src;
       return currentSrc !== url;
@@ -120,7 +120,7 @@ export default function StateViewPage() {
               <div className="w-full h-[60vh] rounded-xl border border-white/30 shadow-md bg-white/60 flex items-center justify-center text-center p-8">
                 <div>
                   <p className="text-gray-700 mb-4">
-                    This site can't be displayed here due to security restrictions.
+                    This site can&apos;t be displayed here due to security restrictions.
                   </p>
                   <p className="text-gray-600 mb-4">
                     The resource has been opened in a new tab for you.

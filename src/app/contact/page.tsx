@@ -10,7 +10,7 @@ export default function ContactPage() {
           
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="text-lg leading-relaxed mb-8 text-center">
-              Have questions, suggestions, or need assistance? We'd love to hear from you.
+              Have questions, suggestions, or need assistance? We&apos;d love to hear from you.
             </p>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -129,7 +129,7 @@ export default function ContactPage() {
               </h3>
               <p className="text-gray-700">
                 We typically respond to inquiries within 24-48 hours during business days. 
-                For urgent matters, please include "URGENT" in your subject line.
+                For urgent matters, please include &quot;URGENT&quot; in your subject line.
               </p>
             </div>
           </div>
