@@ -33,8 +33,8 @@ export async function generateStaticParams() {
 export default async function StatePage({ params }: StatePageProps) {
   const { state: abbr } = await params;
   const fullName = getStateFullName(abbr);
-  const data = getDirectoryData() as DirectoryRow[];
-  const stateRows = data.filter((row) => row.State === abbr);
+  const data = await getDirectoryData();
+  const stateRows = data.filter((row: DirectoryRow) => row.State === abbr);
 
   if (stateRows.length === 0) {
     notFound();
