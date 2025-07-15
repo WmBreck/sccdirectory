@@ -6,13 +6,12 @@ export default function SiteHeader() {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between">
         <div className="text-center sm:text-left">
           <h2 className="text-lg font-semibold text-gray-900 drop-shadow-sm">
-            50 State Small Claims Court URL Directory <span className="text-sm font-normal text-gray-700">(A free public service provided by Legal-Info-AI.com)</span>
+            50 State Small Claims Court URL Directory
           </h2>
           <p className="text-sm text-gray-700">
             sccdirectory.com
           </p>
         </div>
-        
         <nav className="mt-2 sm:mt-0 flex space-x-6">
           <Link 
             href="/" 
