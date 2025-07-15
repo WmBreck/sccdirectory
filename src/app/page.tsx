@@ -2,11 +2,18 @@ import Link from "next/link";
 import { getDirectoryData } from "../utils/parseDirectoryCsv";
 import { getStateFullName } from "../utils/stateNames";
 import BackButton from "../components/BackButton";
+import { useState } from "react";
 
 // Define the type for a row in the directory
 interface DirectoryRow {
   State: string;
   [key: string]: string;
+}
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
 }
 
 export default function Home() {
@@ -21,6 +28,18 @@ export default function Home() {
   });
   const states = Array.from(stateSet).sort();
 
+  const [showModal, setShowModal] = useState(false);
+
+  function handlePaintedDoorClick() {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'painted_door_click', {
+        event_category: 'Painted Door',
+        event_label: 'Court Website Directory',
+      });
+    }
+    setShowModal(true);
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
       <div className="flex-1 flex flex-col items-center justify-center py-12 px-4">
@@ -28,6 +47,28 @@ export default function Home() {
           <h1 className="text-3xl font-bold mb-4 text-center text-gray-900 drop-shadow">
             Welcome to the 50 State Small Claims Court URL Directory
           </h1>
+          <div className="flex justify-center mb-4">
+            <button
+              onClick={handlePaintedDoorClick}
+              className="px-6 py-2 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition font-semibold"
+            >
+              Court Website Directory
+            </button>
+          </div>
+          {showModal && (
+            <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
+              <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center border border-gray-200">
+                <h2 className="text-xl font-bold mb-4 text-gray-900">Thanks for your interest!</h2>
+                <p className="mb-4 text-gray-700">The Court Website Directory feature is coming soon.<br/>If there are other features that you would like, please email us with your suggestions.</p>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition font-semibold"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
           <p className="text-center text-lg mb-8 text-gray-700">
             Click on a state to see its Small Claims Court related webpages and links to PDF documents.
           </p>
