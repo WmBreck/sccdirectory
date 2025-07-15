@@ -1,8 +1,11 @@
+import BackButton from "../../components/BackButton";
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       
       <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <BackButton />
         <div className="backdrop-blur-md bg-white/30 rounded-2xl shadow-xl border border-white/20 p-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center">
             About SCC Directory
