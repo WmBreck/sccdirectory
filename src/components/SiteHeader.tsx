@@ -8,9 +8,6 @@ export default function SiteHeader() {
           <h2 className="text-lg font-semibold text-gray-900 drop-shadow-sm">
             50 State Small Claims Court URL Directory
           </h2>
-          <p className="text-sm text-gray-700">
-            sccdirectory.com
-          </p>
         </div>
         <nav className="mt-2 sm:mt-0 flex space-x-6">
           <Link 
