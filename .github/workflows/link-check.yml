@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: 'Broken links found on sccdirectory site'
-          to: lawgorithmai@gmail.com
+          to: lawgorithmai@gmail.com,breck@seinigerlaw.com
           from: SCC Directory Link Checker <lawgorithmai@gmail.com>
           body: |
             The daily link check found broken links on your deployed site. See the attached report for details.
