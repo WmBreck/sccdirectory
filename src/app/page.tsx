@@ -26,7 +26,7 @@ export default function Home() {
       <div className="flex-1 flex flex-col items-center justify-center py-12 px-4">
         <div className="w-full max-w-4xl lg:max-w-6xl bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 border border-white/40">
           <h1 className="text-3xl font-bold mb-4 text-center text-gray-900 drop-shadow">
-            Welcome to the 50 State Small Claims Court URL Directory (sccdirectory.com)
+            Welcome to the 50 State Small Claims Court URL Directory
           </h1>
           <p className="text-center text-lg mb-8 text-gray-700">
             Click on a state to see its Small Claims Court related webpages and links to PDF documents.
