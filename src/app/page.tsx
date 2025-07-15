@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { getDirectoryData } from "../utils/parseDirectoryCsv";
 import { getStateFullName } from "../utils/stateNames";
