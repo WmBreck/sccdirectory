@@ -17,8 +17,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function StateViewPage({ params }: { params: { state: string } }) {
-  const abbr = params.state;
+interface StateViewPageProps {
+  params: Promise<{ state: string }>;
+}
+
+export default async function StateViewPage({ params }: StateViewPageProps) {
+  const { state: abbr } = await params;
   const fullName = getStateFullName(abbr);
 
   return <StateViewClient stateAbbr={abbr} stateFullName={fullName} />;
