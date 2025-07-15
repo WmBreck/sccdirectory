@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getDirectoryData } from "../utils/parseDirectoryCsv";
 import { getStateFullName } from "../utils/stateNames";
 import BackButton from "../components/BackButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Define the type for a row in the directory
 interface DirectoryRow {
@@ -17,7 +17,15 @@ declare global {
 }
 
 export default function Home() {
-  const data = getDirectoryData() as DirectoryRow[];
+  const [data, setData] = useState<DirectoryRow[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getDirectoryData().then((rows) => {
+      setData(rows || []);
+      setLoading(false);
+    });
+  }, []);
 
   // Get unique states (including DC)
   const stateSet = new Set<string>();
@@ -39,6 +47,8 @@ export default function Home() {
     }
     setShowModal(true);
   }
+
+  if (loading) return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">

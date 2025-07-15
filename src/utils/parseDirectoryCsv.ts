@@ -1,13 +1,14 @@
-import Papa from 'papaparse';
-import fs from 'fs';
-import path from 'path';
+import { createClient } from '@supabase/supabase-js';
 
-export function getDirectoryData() {
-  const csvPath = path.join(process.cwd(), 'src', 'utils', '50 State Directory.csv');
-  const file = fs.readFileSync(csvPath, 'utf8');
-  const { data } = Papa.parse(file, {
-    header: true,
-    skipEmptyLines: true,
-  });
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+export async function getDirectoryData() {
+  const { data, error } = await supabase
+    .from('50StateSCC-URLS')
+    .select('*');
+  if (error) throw error;
   return data;
 } 
