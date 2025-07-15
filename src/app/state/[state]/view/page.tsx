@@ -1,6 +1,7 @@
 import { getStateFullName } from "../../../../utils/stateNames";
 import BackButton from "../../../../components/BackButton";
 import StateViewClient from "./StateViewClient";
+import { Suspense } from "react";
 
 // Generate static params for all states
 export async function generateStaticParams() {
@@ -25,5 +26,18 @@ export default async function StateViewPage({ params }: StateViewPageProps) {
   const { state: abbr } = await params;
   const fullName = getStateFullName(abbr);
 
-  return <StateViewClient stateAbbr={abbr} stateFullName={fullName} />;
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
+        <div className="flex-1 flex flex-col items-center justify-center py-12 px-4">
+          <div className="w-full max-w-4xl lg:max-w-6xl bg-white/30 backdrop-blur-md rounded-3xl shadow-2xl p-8 border border-white/40 text-center">
+            <BackButton />
+            <h1 className="text-2xl font-bold mb-8 text-gray-900 drop-shadow">Loading...</h1>
+          </div>
+        </div>
+      </div>
+    }>
+      <StateViewClient stateAbbr={abbr} stateFullName={fullName} />
+    </Suspense>
+  );
 } 
