@@ -26,7 +26,7 @@ export default function SiteFooter() {
               Contact
             </a>
             <a 
-              href="mailto:seiniger@gmail.com" 
+              href="mailto:lawgorithmai@gmail.com" 
               className="text-sm text-gray-600 hover:text-gray-800 transition-colors duration-200"
             >
               Suggestions

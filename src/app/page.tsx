@@ -45,7 +45,7 @@ export default function Home() {
           <div className="mt-12 flex flex-col items-center">
             <span className="mb-2 text-gray-700">Please email us your suggestions for improvement or inclusions</span>
             <a
-              href="mailto:seiniger@gmail.com"
+              href="mailto:lawgorithmai@gmail.com"
               className="px-6 py-2 bg-white/40 backdrop-blur-md border border-white/30 rounded-xl text-blue-700 hover:bg-white/60 hover:shadow-lg hover:scale-105 transition font-semibold shadow-md"
               style={{ boxShadow: '0 4px 24px 0 rgba(0,0,0,0.08)' }}
             >
